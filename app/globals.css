@@ -2,20 +2,298 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-video__participant-list {
+  background-color: #1c1f2e;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 40px;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glassmorphism3 {
+  background: rgba(255, 255, 255, 0.37);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 25%);
+}
+
+/* ==== clerk class override ===== */
+.cl-providerIcon__github {
+  filter: invert(1);
+}
+
+.cl-formFieldInput::placeholder {
+  color: transparent;
+}
+
+.cl-formFieldInput {
+  caret-color: #30D5C8;
+}
+
+.cl-formFieldInputShowPasswordButton.cl-button, .cl-avatarImageActionsUpload, .cl-badge {
+  color: #C5D0E6;
+}
+
+.cl-avatarImageActionsUpload:hover {
+  color: #30D5C8;
+}
+
+.cl-formButtonPrimary span {
+  color: #2F2F2F;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cl-formButtonPrimary span svg {
+  display: none;
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
+
+/* animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  color: white;
+}
+
+.str-video__device-settings__option.str-video__device-settings__option--selected {
+  background: #5eead4 !important;
+  color: #252a41 !important;
+}
+
+.str-video__device-settings__option.str-video__device-settings__option--selected:hover {
+  background: #5eead4 !important;
+  color: #252a41 !important;
+}
+
+.str-video__device-settings__option {
+  transition: all 0.3s ease-in-out !important;
+}
+
+.str-video__device-settings__option:hover {
+  background: oklch(0.871 0.006 286.286) !important;
+  color: #565761 !important;
+}
+
+.str_video__video-preview__disabled-video-preview {
+  color: oklch(0.637 0.237 25.331) !important;
+}
+
+.str-video__video-preview-container {
+  border-color: oklch(0.637 0.237 25.331) !important;
+}
+
+.str-video__video-preview-container:has(video) {
+  border-color: #5eead4 !important;
+}
+
+.str-video__call-controls__button.str-video__menu-toggle-button {
+  width: 30px !important;
+  height: 20px !important;
+  border-radius: 5px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 425px) {
+  .str-video__call-controls__button.str-video__menu-toggle-button {
+    display: none !important;
+  }
+
+  .str-video__composite-button.str-video__composite-button--menu .str-video__composite-button__button {
+    padding-right: 9px !important;
+  }
+}
+
+.str-video__participant-details__name--audio-muted, .str-video__participant-details__name--video-muted {
+  background-color: oklch(0.637 0.237 25.331) !important;
+}
+
+.str-video__call-controls__button {
+  width: 35px !important;
+  height: 35px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.str-video__search-input__container {
+  background: #13141e !important;
+}
+
+.str-video__search-input__container.str-video__search-input__container--active {
+  border-color: #30D5C8 !important;
+}
+
+.str-video__composite-button__button-group.str-video__composite-button__button-group--active-primary {
+  background: #30D5C8 !important;
+}
+
+.str-video__composite-button__button-group.str-video__composite-button__button-group--active-primary .str-video__icon {
+  background-color: #1c1f2e !important;
+}
+
+.str-video__reactions-menu__button:hover {
+  background: #30D5C8 !important;
+}
+
+.react-datepicker__header, .react-datepicker__time, .react-datepicker__month, .react-datepicker__month-container, .react-datepicker {
+  background: #252a41 !important;
+  border-color: #5eead565 !important;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker__time-list-item {
+  color: #C9DDFF !important;
+}
+
+.react-datepicker__time-container {
+  border-color: #5eead565 !important;
+}
+
+.react-datepicker__time-list-item {
+  height: 30px !important;
+  padding: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 25px !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected, .react-datepicker__day--selected, .react-datepicker__day--keyboard-selected {
+  background-color: #30D5C8 !important;
+  color: #13141e !important;
+}
+
+.react-datepicker__time-list-item:hover, .react-datepicker__day:hover {
+  background: #1C1F2E !important;
+}
+
+.react-datepicker__time-list {
+  scrollbar-color: #30D5C8 #1C1F2E !important;
+  scrollbar-width: thin !important;
+}
+
+.react-datepicker__navigation:hover :before {
+  border-color: #30D5C8 !important;
+}
+
+.react-datepicker__day--selected:hover, .react-datepicker__day--keyboard-selected:hover {
+  background-color: #30D5C8 !important;
+  color: #13141e !important;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+  fill: #252a41 !important;
+  color: #252a41 !important;
+}
+
+.react-datepicker-popper .react-datepicker__triangle {
+  stroke: #5eead565 !important;
+}
+
+.cl-navbarButton {
+  color: #C5D0E6 !important;
+}
+
+.cl-navbarButton.cl-active {
+  color: #30D5C8 !important;
 }
